@@ -1,6 +1,7 @@
 {
-  "name": "formeo",
-  "version": "1.6.2",
+  "name": "@jonas-flexxter/formeo",
+  "classnamePrefix": "formeo",
+  "version": "1.6.4",
   "main": "dist/formeo.min.js",
   "files": [
     "dist/*",
@@ -8,19 +9,24 @@
   ],
   "homepage": "https://formeo.io",
   "repository": {
-    "url": "https://github.com/Draggable/formeo",
+    "url": "https://github.com/Flexxter-GmbH/formeo",
     "type": "git"
   },
-  "author": "Draggable https://draggable.io",
+  "author": "Draggable https://draggable.io, Flexxter GmbH",
   "contributors": [
     {
       "name": "Kevin Chappell",
       "email": "kevin.b.chappell@gmail.com",
       "url": "https://kevin-chappell.com"
+    },
+    {
+      "name": "Jonas Habel",
+      "email": "jonas.habel@flexxter.de",
+      "url": "https://www.flexxter.de"
     }
   ],
   "bugs": {
-    "url": "https://github.com/draggable/formeo/issues"
+    "url": "https://github.com/Flexxter-GmbH/formeo/issues"
   },
   "description": "A zero dependency JavaScript module for drag and drop form creation.",
   "keywords": [

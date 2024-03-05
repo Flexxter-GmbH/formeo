@@ -1,6 +1,6 @@
-import { name } from '../../package.json'
+import { classnamePrefix } from '../../package.json'
 
-export const PACKAGE_NAME = name
+export const PACKAGE_NAME = classnamePrefix
 
 export const POLYFILLS = [
   { name: 'cssPreload', src: '//cdnjs.cloudflare.com/ajax/libs/loadCSS/2.0.1/cssrelpreload.min.js' },
