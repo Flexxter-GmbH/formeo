@@ -261,15 +261,15 @@ export default class FormeoRenderer {
 
   getComponent = address => {
     const componentId = address.slice(address.indexOf('.') + 1)
-    let component = undefined
+    let component
     if (isExternalAddress(address)) {
       component = this.external[componentId]
     } else {
       component = this.renderedForm.querySelector(`#f-${componentId}`)
 
       if (component === null) {
-        //could be a group (checkbox, radio, etc.)
-        //in this case let's find the first input
+        // could be a group (checkbox, radio, etc.)
+        // in this case let's find the first input
         component = this.renderedForm.querySelector(`#f-${componentId}-0`)?.parentElement?.parentElement
       }
     }
