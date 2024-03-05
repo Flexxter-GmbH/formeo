@@ -98,8 +98,8 @@ export const COLUMN_TEMPLATES = new Map(
 
 export const CHANGE_TYPES = [{ type: 'added', condition: (o, n) => Boolean(o === undefined && n) }]
 
-export const SESSION_FORMDATA_KEY = `${name}-formData`
-export const SESSION_LOCALE_KEY = `${name}-locale`
+export const SESSION_FORMDATA_KEY = `${classnamePrefix}-formData`
+export const SESSION_LOCALE_KEY = `${classnamePrefix}-locale`
 
 export const ANIMATION_SPEED_BASE = 333
 export const ANIMATION_SPEED_FAST = Math.round(ANIMATION_SPEED_BASE / 2)
