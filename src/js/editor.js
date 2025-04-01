@@ -151,6 +151,74 @@ export class FormeoEditor {
 
     document.dispatchEvent(Events.formeoLoaded)
   }
+
+  // removed all unused elements from the formData object
+  // this is used to clean up the formData object before saving it
+  cleanFormData() {
+    const usedRowIds = new Set()
+    const usedColumnIds = new Set()
+    const usedFieldIds = new Set()
+
+    const data = this.Components.formData
+    if (!data) return null
+
+    // Step 1: Traverse from stages → rows
+    for (const stageId in data.stages) {
+      const stage = data.stages[stageId]
+      if (!stage.children) continue
+
+      stage.children.forEach(rowId => {
+        usedRowIds.add(rowId)
+      })
+    }
+
+    // Step 2: Traverse from rows → columns
+    usedRowIds.forEach(rowId => {
+      const row = data.rows[rowId]
+      if (!row || !row.children) return
+
+      row.children.forEach(columnId => {
+        usedColumnIds.add(columnId)
+      })
+    })
+
+    // Step 3: Traverse from columns → fields
+    usedColumnIds.forEach(columnId => {
+      const column = data.columns[columnId]
+      if (!column || !column.children) return
+
+      column.children.forEach(fieldId => {
+        usedFieldIds.add(fieldId)
+      })
+    })
+
+    // Step 4: Rebuild clean data
+    const cleanedData = {
+      id: data.id,
+      stages: {},
+      rows: {},
+      columns: {},
+      fields: {},
+    }
+
+    // Copy only used stages
+    for (const stageId in data.stages) {
+      cleanedData.stages[stageId] = data.stages[stageId]
+    }
+
+    // Copy only used rows, columns, fields
+    usedRowIds.forEach(id => {
+      if (data.rows[id]) cleanedData.rows[id] = data.rows[id]
+    })
+    usedColumnIds.forEach(id => {
+      if (data.columns[id]) cleanedData.columns[id] = data.columns[id]
+    })
+    usedFieldIds.forEach(id => {
+      if (data.fields[id]) cleanedData.fields[id] = data.fields[id]
+    })
+
+    this.formData = cleanedData
+  }
 }
 
 export default FormeoEditor

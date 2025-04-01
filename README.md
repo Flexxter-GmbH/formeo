@@ -1,12 +1,11 @@
-# Formeo
+# Formeo (Fork)
 
-A pure JavaScript module for drag and drop form creation.
+> ⚠️ This is a **fork** of the original [Formeo](https://github.com/Draggable/formeo) project, maintained by **Jonas Habel**.
+> 
+> This fork includes fixes and enhancements not available in the original version.  
+> Please do not confuse this with the official release by Draggable.
 
-![npm](https://img.shields.io/npm/v/formeo.svg) ![GitHub](https://img.shields.io/github/license/Draggable/formeo.svg) [![build](https://github.com/Draggable/formeo/workflows/build/badge.svg)](https://github.com/Draggable/formeo/actions?query=workflow%3Abuild)
 
-## [Demo](https://draggable.github.io/formeo/)
-
-[![formeo-demo](https://user-images.githubusercontent.com/1457540/54798148-72c3c400-4c14-11e9-9d3f-bafe1ce0c8c1.gif)](https://draggable.github.io/formeo/)
 
 ## Features
 
@@ -16,20 +15,12 @@ A pure JavaScript module for drag and drop form creation.
 - Custom fields
 - Preview mode
 - i18n support
+- 🧼 **Fork improvements by Jonas Habel:**
+- Automatic cleanup of unused form elements (rows, columns, fields)
+- Bug fixes and usability tweaks
 
 ## Installation
 
-### NPM
-
-```
-npm install --save formeo
-```
-
-### Manual
-
-```
-<script src="https://draggable.github.io/formeo/assets/js/formeo.min.js"></script>
-```
 
 ## Usage
 
@@ -53,3 +44,8 @@ renderer.render(formData)
 ## [Docs](https://github.com/Draggable/formeo/blob/master/docs/README.md)
 
 ## [Changelog](https://github.com/Draggable/formeo/blob/master/CHANGELOG.md)
+
+## [🙌 Credits]
+Original project by Draggable
+
+Fork maintained by Jonas Habel from Flexxter GmbH — improvements and maintenance for extended use cases
