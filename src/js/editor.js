@@ -163,6 +163,12 @@ export class FormeoEditor {
     const usedColumnIds = new Set()
     const usedFieldIds = new Set()
 
+    if (!data) return data
+    if (!data.stages) return data
+    if (!data.rows) return data
+    if (!data.columns) return data
+    if (!data.fields) return data
+
     // Step 1: Traverse from stages → rows
     for (const stageId in data.stages) {
       const stage = data.stages[stageId]
