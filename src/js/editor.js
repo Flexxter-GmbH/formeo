@@ -25,6 +25,10 @@ export class FormeoEditor {
     const _this = this
     const mergedOptions = merge(defaults.editor, options)
 
+    if (mergedOptions.autoCleanFormData) {
+      userFormData = _this.cleanFormData(userFormData)
+    }
+
     const { actions, events, debug, config, editorContainer, ...opts } = mergedOptions
     if (editorContainer) {
       this.editorContainer =
@@ -154,12 +158,11 @@ export class FormeoEditor {
 
   // removed all unused elements from the formData object
   // this is used to clean up the formData object before saving it
-  cleanFormData() {
+  cleanFormData(data) {
     const usedRowIds = new Set()
     const usedColumnIds = new Set()
     const usedFieldIds = new Set()
 
-    const data = this.Components.formData
     if (!data) return null
 
     // Step 1: Traverse from stages → rows
@@ -217,7 +220,7 @@ export class FormeoEditor {
       if (data.fields[id]) cleanedData.fields[id] = data.fields[id]
     })
 
-    this.formData = cleanedData
+    return cleanedData
   }
 }
 
